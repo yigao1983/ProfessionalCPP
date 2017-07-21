@@ -1,4 +1,5 @@
 CXX=g++
+CFLAGS=-g -lstdc++ -std=c++1y
 
 .PHONY: clean
 
@@ -6,7 +7,7 @@ clean:
 	rm -rf *.o *~ helloworld
 
 %.o: %.cpp
-	$(CXX) -g -o $@ -c $<
+	$(CXX) $(CFLAGS) -o $@ -c $<
 
 helloworld: helloworld.o
-	$(CXX) -o $@ $<
+	$(CXX) -O3 -o $@ $<
