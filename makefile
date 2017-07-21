@@ -12,3 +12,6 @@ clean:
 
 helloworld: helloworld.o
 	$(CXX) -O3 -o $@ $<
+
+enumtypes: enumtypes.o
+	$(CXX) -O3 -o $@ $<
