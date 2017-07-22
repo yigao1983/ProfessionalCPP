@@ -15,7 +15,8 @@ clean:
                       exceptionexample \
                       constptr \
                       constref \
-                      airlinetickettest
+                      airlinetickettest \
+                      cstringstyle
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -o $@ -c $< -I$(INCPATH)
@@ -49,3 +50,6 @@ constref: constref.o
 
 airlinetickettest: airlineticket.o airlinetickettest.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $^ $(LIBS)
+
+cstringstyle: cstringstyle.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
