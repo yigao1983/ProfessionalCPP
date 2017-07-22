@@ -6,7 +6,14 @@ LIBS=-lstdc++
 .PHONY: clean
 
 clean:
-	rm -rf *.o *~ helloworld enumtypes employee stdarray showmacro uniqueptr exceptionexample
+	rm -rf *.o *~ helloworld \
+                      enumtypes \
+                      employee \
+                      stdarray \
+                      showmacro \
+                      uniqueptr \
+                      exceptionexample \
+                      constptr
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -o $@ -c $< -I$(INCPATH)
@@ -30,4 +37,7 @@ uniqueptr: uniqueptr.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
 
 exceptionexample: exceptionexample.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
+
+constptr: constptr.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
