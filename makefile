@@ -13,7 +13,8 @@ clean:
                       showmacro \
                       uniqueptr \
                       exceptionexample \
-                      constptr
+                      constptr \
+                      constref
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -o $@ -c $< -I$(INCPATH)
@@ -40,4 +41,7 @@ exceptionexample: exceptionexample.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
 
 constptr: constptr.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
+
+constref: constref.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
