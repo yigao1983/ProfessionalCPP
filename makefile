@@ -14,7 +14,8 @@ clean:
                       uniqueptr \
                       exceptionexample \
                       constptr \
-                      constref
+                      constref \
+                      airlinetickettest
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -o $@ -c $< -I$(INCPATH)
@@ -45,3 +46,6 @@ constptr: constptr.o
 
 constref: constref.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
+
+airlinetickettest: airlineticket.o airlinetickettest.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $^ $(LIBS)
