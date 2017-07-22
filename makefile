@@ -1,7 +1,7 @@
 INCPATH=$(PWD)
 CXX=g++
 CFLAGS=-g -std=c++1y
-LIBS=
+LIBS=-lstdc++
 
 .PHONY: clean
 
