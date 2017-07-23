@@ -6,9 +6,10 @@ using namespace std;
 
 int main()
 {
-  unique_ptr<Employee> anEmployee = make_unique<Employee>();
+  unique_ptr<Employee[]> employees(new Employee[10]);
   
-  // anEmployee->firstInitial = 'M';
+  employees[0].firstInitial = 'M';
+  employees[1].firstInitial = 'L';
   
   return 0;
 }
