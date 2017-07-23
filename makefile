@@ -7,18 +7,19 @@ LIBS=-lstdc++
 
 clean:
 	rm -rf *.o *~ helloworld \
-                      enumtypes \
-                      employee \
-                      stdarray \
-                      showmacro \
-                      uniqueptr \
-                      exceptionexample \
-                      constptr \
-                      constref \
-                      airlinetickettest \
-                      cstringstyle \
-                      strconcat \
-                      strconvert
+              enumtypes \
+              employee \
+              stdarray \
+              showmacro \
+              uniqueptr \
+              exceptionexample \
+              constptr \
+              constref \
+              airlinetickettest \
+              cstringstyle \
+              strconcat \
+              strconvert \
+              rawstring
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -o $@ -c $< -I$(INCPATH)
@@ -60,4 +61,7 @@ strconcat: strconcat.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
 
 strconvert: strconvert.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
+
+rawstring: rawstring.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
