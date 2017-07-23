@@ -16,7 +16,8 @@ clean:
                       constptr \
                       constref \
                       airlinetickettest \
-                      cstringstyle
+                      cstringstyle \
+                      strconcat
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -o $@ -c $< -I$(INCPATH)
@@ -52,4 +53,7 @@ airlinetickettest: airlineticket.o airlinetickettest.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $^ $(LIBS)
 
 cstringstyle: cstringstyle.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
+
+strconcat: strconcat.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
