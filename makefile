@@ -19,7 +19,8 @@ clean:
               cstringstyle \
               strconcat \
               strconvert \
-              rawstring
+              rawstring \
+              manip
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -o $@ -c $< -I$(INCPATH)
@@ -64,4 +65,7 @@ strconvert: strconvert.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
 
 rawstring: rawstring.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
+
+manip: manip.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
