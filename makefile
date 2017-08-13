@@ -20,7 +20,9 @@ clean:
               strconcat \
               strconvert \
               rawstring \
-              manip
+              manip \
+              readcin \
+              inputstream
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -o $@ -c $< -I$(INCPATH)
@@ -68,4 +70,11 @@ rawstring: rawstring.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
 
 manip: manip.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
+
+readcin: readcin.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
+
+
+inputstream: inputstream.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
