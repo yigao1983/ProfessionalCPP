@@ -22,7 +22,8 @@ clean:
               rawstring \
               manip \
               readcin \
-              inputstream
+              inputstream \
+              strstream
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -o $@ -c $< -I$(INCPATH)
@@ -75,6 +76,8 @@ manip: manip.o
 readcin: readcin.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
 
-
 inputstream: inputstream.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
+
+strstream: strstream.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
