@@ -1,7 +1,7 @@
 INCPATH=$(PWD)
 CXX=g++
 CFLAGS=-g -std=c++1y
-LIBS=-lstdc++
+LIBS=
 
 .PHONY: clean
 
@@ -23,7 +23,8 @@ clean:
               manip \
               readcin \
               inputstream \
-              strstream
+              strstream \
+              inputgetline
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -o $@ -c $< -I$(INCPATH)
@@ -80,4 +81,7 @@ inputstream: inputstream.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
 
 strstream: strstream.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
+
+inputgetline: inputgetline.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
