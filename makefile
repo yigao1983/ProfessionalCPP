@@ -24,7 +24,9 @@ clean:
               readcin \
               inputstream \
               strstream \
-              inputgetline
+              inputgetline \
+              testexception \
+              throwint
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -o $@ -c $< -I$(INCPATH)
@@ -84,4 +86,10 @@ strstream: strstream.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
 
 inputgetline: inputgetline.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
+
+testexception: testexception.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
+
+throwint: throwint.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
