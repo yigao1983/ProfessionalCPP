@@ -26,7 +26,8 @@ clean:
               strstream \
               inputgetline \
               testexception \
-              throwint
+              throwint \
+              circuitsmain
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -o $@ -c $< -I$(INCPATH)
@@ -92,4 +93,7 @@ testexception: testexception.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
 
 throwint: throwint.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
+
+circuitsmain: circuitsmain.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
