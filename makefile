@@ -7,6 +7,7 @@ LIBS=
 
 clean:
 	rm -rf *.o *~ helloworld \
+              rangeloop \
               enumtypes \
               employee \
               stdarray \
@@ -27,12 +28,16 @@ clean:
               inputgetline \
               testexception \
               throwint \
-              circuitsmain
+              circuitsmain \
+              spreadsheetcellmain
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -o $@ -c $< -I$(INCPATH)
 
 helloworld: helloworld.o
+	$(CXX) -O3 -o $@ $< $(LIBS)
+
+rangeloop: rangeloop.o
 	$(CXX) -O3 -o $@ $< $(LIBS)
 
 enumtypes: enumtypes.o
@@ -97,3 +102,6 @@ throwint: throwint.o
 
 circuitsmain: circuitsmain.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
+
+spreadsheetcellmain: spreadsheetcellmain.o spreadsheetcell.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $? $(LIBS)
