@@ -5,6 +5,8 @@
 
 class SpreadsheetCell {
 public:
+  SpreadsheetCell(double initialValue);
+  SpreadsheetCell(const std::string &initialValue);
   void setValue(double inValue);
   double getValue() const;
   void setString(const std::string &inString);

@@ -4,6 +4,16 @@
 
 using namespace std;
 
+SpreadsheetCell::SpreadsheetCell(double initialValue)
+{
+  setValue(initialValue);
+}
+
+SpreadsheetCell::SpreadsheetCell(const std::string &initialValue)
+{
+  setString(initialValue);
+}
+
 void SpreadsheetCell::setValue(double inValue)
 {
   mValue = inValue;
