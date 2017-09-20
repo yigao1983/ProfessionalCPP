@@ -29,7 +29,7 @@ clean:
               testexception \
               throwint \
               circuitsmain \
-              spreadsheetcellmain
+              spreadsheetcellmain spreadsheetmain
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -o $@ -c $< -I$(INCPATH)
@@ -104,4 +104,7 @@ circuitsmain: circuitsmain.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
 
 spreadsheetcellmain: spreadsheetcell.o spreadsheetcellmain.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $? $(LIBS)
+
+spreadsheetmain: spreadsheetcell.o spreadsheet.o spreadsheetcellmain.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $? $(LIBS)
