@@ -12,5 +12,9 @@ int main(int argc, char *argv[])
   
   cellPtr->setValue(3.7);
   
+  SpreadsheetCell *cellArr = new SpreadsheetCell[10];
+  
+  delete[] cellArr;
+  
   return 0;
 }

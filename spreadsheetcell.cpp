@@ -4,14 +4,31 @@
 
 using namespace std;
 
-SpreadsheetCell::SpreadsheetCell(double initialValue)
-{
-  setValue(initialValue);
-}
+SpreadsheetCell::SpreadsheetCell() : mValue(0), mString("")
+{}
 
-SpreadsheetCell::SpreadsheetCell(const std::string &initialValue)
+SpreadsheetCell::SpreadsheetCell(double initialValue) :
+  mValue(initialValue), mString(doubleToString(initialValue))
+{}
+
+SpreadsheetCell::SpreadsheetCell(const std::string &initialValue) :
+  mValue(stringToDouble(initialValue)), mString(initialValue)
+{}
+
+SpreadsheetCell::SpreadsheetCell(const SpreadsheetCell &rhs) :
+  mValue(rhs.mValue), mString(rhs.mString)
+{}
+
+const SpreadsheetCell &SpreadsheetCell::operator=(const SpreadsheetCell &rhs)
 {
-  setString(initialValue);
+  if (this == &rhs) {
+    return *this;
+  }
+  
+  mValue = rhs.mValue;
+  mString = rhs.mString;
+  
+  return *this;
 }
 
 void SpreadsheetCell::setValue(double inValue)

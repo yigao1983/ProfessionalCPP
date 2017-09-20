@@ -103,5 +103,5 @@ throwint: throwint.o
 circuitsmain: circuitsmain.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $< $(LIBS)
 
-spreadsheetcellmain: spreadsheetcellmain.o spreadsheetcell.o
+spreadsheetcellmain: spreadsheetcell.o spreadsheetcellmain.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $? $(LIBS)
