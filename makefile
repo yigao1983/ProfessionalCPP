@@ -29,7 +29,8 @@ clean:
               testexception \
               throwint \
               circuitsmain \
-              spreadsheetcellmain spreadsheetmain
+              spreadsheetcellmain spreadsheetmain \
+              inheritance recursivector
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -o $@ -c $< -I$(INCPATH)
@@ -107,4 +108,10 @@ spreadsheetcellmain: spreadsheetcell.o spreadsheetcellmain.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $? $(LIBS)
 
 spreadsheetmain: spreadsheetcell.o spreadsheet.o spreadsheetcellmain.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $? $(LIBS)
+
+inheritance: inheritance.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $? $(LIBS)
+
+recursivector: recursivector.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $? $(LIBS)
