@@ -6,15 +6,15 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-  SpreadsheetCell myCell(6), anotherCell("3.2");
+  shared_ptr<SpreadsheetCell> cellArray[3];
   
-  unique_ptr<SpreadsheetCell> cellPtr(new SpreadsheetCell(3));
-  
-  cellPtr->setValue(3.7);
-  
-  SpreadsheetCell *cellArr = new SpreadsheetCell[10];
-  
-  delete[] cellArr;
-  
+  cellArray[0] = shared_ptr<SpreadsheetCell>(new StringSpreadsheetCell());
+  cellArray[1] = shared_ptr<SpreadsheetCell>(new StringSpreadsheetCell());
+  cellArray[2] = shared_ptr<SpreadsheetCell>(new StringSpreadsheetCell());
+  /*
+  delete cellArray[2];
+  delete cellArray[1];
+  delete cellArray[0];
+  */
   return 0;
 }

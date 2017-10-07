@@ -30,7 +30,7 @@ clean:
               throwint \
               circuitsmain \
               spreadsheetcellmain spreadsheetmain \
-              inheritance recursivector
+              inheritance recursivector referparent referparent referparent referparent
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -o $@ -c $< -I$(INCPATH)
@@ -114,4 +114,7 @@ inheritance: inheritance.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $? $(LIBS)
 
 recursivector: recursivector.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $? $(LIBS)
+
+referparent: referparent.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $? $(LIBS)

@@ -4,69 +4,45 @@
 
 using namespace std;
 
-SpreadsheetCell::SpreadsheetCell() : mValue(0), mString("")
+StringSpreadsheetCell::StringSpreadsheetCell() : mValue("#NOVALUE")
 {}
 
-SpreadsheetCell::SpreadsheetCell(double initialValue) :
-  mValue(initialValue), mString(doubleToString(initialValue))
+void StringSpreadsheetCell::set(const string &inString)
+{ mValue = inString; }
+
+string StringSpreadsheetCell::getString() const
+{ return mValue; }
+
+DoubleSpreadsheetCell::DoubleSpreadsheetCell() : mValue(0)
 {}
 
-SpreadsheetCell::SpreadsheetCell(const std::string &initialValue) :
-  mValue(stringToDouble(initialValue)), mString(initialValue)
-{}
+void DoubleSpreadsheetCell::set(double inDouble)
+{ mValue = inDouble; }
 
-SpreadsheetCell::SpreadsheetCell(const SpreadsheetCell &rhs) :
-  mValue(rhs.mValue), mString(rhs.mString)
-{}
+void DoubleSpreadsheetCell::set(const string &inString)
+{ mValue = stringToDouble(inString); }
 
-const SpreadsheetCell &SpreadsheetCell::operator=(const SpreadsheetCell &rhs)
-{
-  if (this == &rhs) {
-    return *this;
-  }
-  
-  mValue = rhs.mValue;
-  mString = rhs.mString;
-  
-  return *this;
-}
+string DoubleSpreadsheetCell::getString() const
+{ return doubleToString(mValue); }
 
-void SpreadsheetCell::setValue(double inValue)
-{
-  mValue = inValue;
-  mString = doubleToString(mValue);
-}
-
-double SpreadsheetCell::getValue() const
-{
-  return mValue;
-}
-
-void SpreadsheetCell::setString(const string &inString)
-{
-  mString = inString;
-  mValue = stringToDouble(mString);
-}
-
-const string &SpreadsheetCell::getString() const
-{
-  return mString;
-}
-
-string SpreadsheetCell::doubleToString(double inValue) const
+string DoubleSpreadsheetCell::doubleToString(double inDouble)
 {
   ostringstream ostr;
-  ostr << inValue;
+  
+  ostr << inDouble;
+  
   return ostr.str();
 }
 
-double SpreadsheetCell::stringToDouble(const string &inString) const
+double DoubleSpreadsheetCell::stringToDouble(const string &inString)
 {
   double temp;
   istringstream istr(inString);
+  
   istr >> temp;
   if (istr.fail() || !istr.eof()) {
     return 0;
   }
+  
   return temp;
 }
