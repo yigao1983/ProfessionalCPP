@@ -10,11 +10,16 @@ int main(int argc, char *argv[])
   
   cellArray[0] = shared_ptr<SpreadsheetCell>(new StringSpreadsheetCell());
   cellArray[1] = shared_ptr<SpreadsheetCell>(new StringSpreadsheetCell());
-  cellArray[2] = shared_ptr<SpreadsheetCell>(new StringSpreadsheetCell());
-  /*
-  delete cellArray[2];
-  delete cellArray[1];
-  delete cellArray[0];
-  */
+  cellArray[2] = shared_ptr<SpreadsheetCell>(new DoubleSpreadsheetCell());
+  
+  cellArray[0]->set("hello");
+  cellArray[1]->set("10");
+  cellArray[2]->set("18");
+  
+  cout << "Array values are ["
+       << cellArray[0]->getString() << ","
+       << cellArray[1]->getString() << ","
+       << cellArray[2]->getString() << "]" << endl;
+  
   return 0;
 }
