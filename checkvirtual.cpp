@@ -32,7 +32,7 @@ public:
 class LowerLeft : public Left
 {
 public:
-  LowerLeft() : Left()
+  LowerLeft() : Left(), Top()
   { cout << "LowerLeft created." << endl; }
   virtual ~LowerLeft()
   {}
@@ -41,7 +41,7 @@ public:
 class LowerRight : public Right
 {
 public:
-  LowerRight() : Right()
+  LowerRight() : Right(), Top()
   { cout << "LowerRight created." << endl; }
   virtual ~LowerRight()
   {}
@@ -56,6 +56,10 @@ public:
 
 int main()
 {
+  cout << "===" << endl;
   Merge myMerge;
+  cout << "===" << endl;
+  LowerLeft ll;
+  cout << "===" << endl;
   return 0;
 }

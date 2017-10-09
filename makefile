@@ -7,30 +7,31 @@ LIBS=
 
 clean:
 	rm -rf *.o *.out *~ helloworld \
-              rangeloop \
-              enumtypes \
-              employee \
-              stdarray \
-              showmacro \
-              uniqueptr \
-              exceptionexample \
-              constptr \
-              constref \
-              airlinetickettest \
-              cstringstyle \
-              strconcat \
-              strconvert \
-              rawstring \
-              manip \
-              readcin \
-              inputstream \
-              strstream \
-              inputgetline \
-              testexception \
-              throwint \
-              circuitsmain \
-              spreadsheetcellmain spreadsheetmain \
-              inheritance recursivector referparent multiinherit diamondprob checkvirtual
+                            rangeloop \
+                            enumtypes \
+                            employee \
+                            stdarray \
+                            showmacro \
+                            uniqueptr \
+                            exceptionexample \
+                            constptr \
+                            constref \
+                            airlinetickettest \
+                            cstringstyle \
+                            strconcat \
+                            strconvert \
+                            rawstring \
+                            manip \
+                            readcin \
+                            inputstream \
+                            strstream \
+                            inputgetline \
+                            testexception \
+                            throwint \
+                            circuitsmain \
+                            spreadsheetcellmain spreadsheetmain \
+                            inheritance recursivector referparent \
+                            multiinherit diamondprob checkvirtual
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -o $@ -c $< -I$(INCPATH)
