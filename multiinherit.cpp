@@ -1,4 +1,5 @@
 #include <iostream>
+#include <typeinfo>
 
 using namespace std;
 
@@ -31,5 +32,6 @@ int main()
 {
   DogBird myConfusedAnimal;
   myConfusedAnimal.eat();
+  cout << typeid(myConfusedAnimal).name() << endl;
   return 0;
 }

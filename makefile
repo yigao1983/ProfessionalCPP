@@ -6,7 +6,7 @@ LIBS=
 .PHONY: clean
 
 clean:
-	rm -rf *.o *~ helloworld \
+	rm -rf *.o *.out *~ helloworld \
               rangeloop \
               enumtypes \
               employee \
@@ -30,7 +30,7 @@ clean:
               throwint \
               circuitsmain \
               spreadsheetcellmain spreadsheetmain \
-              inheritance recursivector referparent multiinherit
+              inheritance recursivector referparent multiinherit diamondprob checkvirtual
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -o $@ -c $< -I$(INCPATH)
@@ -120,4 +120,10 @@ referparent: referparent.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $? $(LIBS)
 
 multiinherit: multiinherit.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $? $(LIBS)
+
+diamondprob: diamondprob.o
+	$(CXX) $(CFLAGS) -O3 -o $@ $? $(LIBS)
+
+checkvirtual: checkvirtual.o
 	$(CXX) $(CFLAGS) -O3 -o $@ $? $(LIBS)
